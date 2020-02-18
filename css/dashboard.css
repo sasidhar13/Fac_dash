@@ -1,0 +1,36 @@
+
+.page-name{
+  z-index: 1000;
+  font-weight: 500;
+  right: 43%;
+  position: absolute;
+}
+
+.mcard {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.7);
+  transition: 0.3s;
+  position: relative;
+  width:96%;
+  left: 2%
+}
+
+.aboutcard{
+  position: relative;
+  height: 300px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
+
+.acard{
+  position: relative;
+  height: 300px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
+
+.ecard{
+  position: relative;
+  height: 300px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+}

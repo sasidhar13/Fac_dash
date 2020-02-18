@@ -1,0 +1,201 @@
+#main{
+  display: flex;
+}
+.main .meetings{
+  position: absolute;
+  background: #000000;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(90deg, #434343, #000000);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(90deg, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color: white;
+  width: 400px;
+  left:150px;
+  top:100px;
+}
+
+.main .appointments{
+  position: absolute;
+  background: #000000;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(90deg, #434343, #000000);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color: white;
+  width: 500px;
+  left:700px;
+  top:100px;
+}
+
+#meethead{
+  position: absolute;
+  left:280px;
+  top:30px;
+}
+
+#appthead{
+  position: absolute;
+  left:860px;
+  top:30px;
+}
+
+#apptapply{
+  display: block;
+  width: 250px;
+  height: 50px;
+  border-radius: 25px;
+  border:none;
+  margin: 1rem 0;
+  font-size: 1.8rem;
+  background-image: linear-gradient(to right, #000, #38d39f, #000);
+  cursor: pointer;
+  color: #fff;
+  text-transform: uppercase;
+  font-family: 'Poppins', sans-serif;
+  background-size: 200%;
+  transition: .5s;
+  position: absolute;
+  left:130px;
+  border-width: 1px;
+}
+
+#apptapply:hover{
+  background-position: right;
+}
+
+#adelete{
+  position: relative;
+  top:5px;
+  right:5px;
+  background: none;
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+  border:2px solid #2ecc71;
+  padding: 5px 10px;
+  outline: none;
+  color: white;
+  border-radius: 24px;
+  transition: 0.25s;
+  cursor: pointer;
+}
+
+
+#adelete:hover{
+  background: #2ecc71; 
+}
+
+.table > tbody > tr > td {
+     vertical-align: middle;
+     align-content: center;
+}
+
+.table > tbody > tr > th {
+     vertical-align: middle;
+     align-content: center;
+}
+#meetnotify{
+  display: block;
+  width: 250px;
+  height: 50px;
+  border-radius: 25px;
+  border:none;
+  margin: 1rem 0;
+  font-size: 1.8rem;
+  background-image: linear-gradient(to right, #000, #38d39f, #000);
+  cursor: pointer;
+  color: #fff;
+  text-transform: uppercase;
+  font-family: 'Poppins', sans-serif;
+  background-size: 200%;
+  transition: .5s;
+  position: absolute;
+  left:70px;
+  border-width: 1px;
+}
+
+
+#meetnotify:hover{
+  background-position: right;
+}
+
+
+#mdelete{
+  position: relative;
+  top:5px;
+  right:5px;
+  background: none;
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+  border:2px solid #2ecc71;
+  padding: 5px 10px;
+  outline: none;
+  color: white;
+  border-radius: 24px;
+  transition: 0.25s;
+  cursor: pointer;
+}
+
+
+#mdelete:hover{
+  background: #2ecc71; 
+}
+
+#adeny{
+  position: relative;
+  top:5px;
+  background: none;
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+  border:2px solid #2ecc71;
+  padding: 5px 10px;
+  outline: none;
+  color: white;
+  border-radius: 24px;
+  transition: 0.25s;
+  cursor: pointer;
+}
+
+#adeny:hover{
+  background: #2ecc71; 
+}
+
+
+#aapprove{
+  position: relative;
+  right:10px;
+  background: none;
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+  border:2px solid #2ecc71;
+  padding: 5px 10px;
+  outline: none;
+  color: white;
+  border-radius: 24px;
+  transition: 0.25s;
+  cursor: pointer;
+}
+
+#aapprove:hover{
+  background: #2ecc71; 
+}
+
+#adenymsg{
+  background: none;
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+  border:2px solid #3498db;
+  padding: 14px 10px;
+  width: 200px;
+  outline: none;
+  color: white;
+  border-radius: 24px;
+  transition: 0.25s;
+  position: relative;
+  top:10px;
+}
+
+#adenymsg:hover{
+  width:250px;
+  border-color:#2ecc71;
+}

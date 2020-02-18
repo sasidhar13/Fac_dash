@@ -1,0 +1,20 @@
+#main{
+  display: flex;
+}
+.main{
+  width: 100%;
+}
+
+.main .passconf{
+  width:25%;
+}
+
+.main .secques{
+  position: relative;
+  left: 5%;
+  width: 60%;
+}
+
+#secques{
+  display:none;
+}

@@ -1,0 +1,99 @@
+body{
+  font-family: "Lato", sans-serif;
+  transition: background-color .5s;
+  background-color: #eee;
+  margin:0;
+  padding-bottom: 50%;
+}
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1001;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #888888;
+  display: block;
+  transition: 0.5s;
+}
+.sidenav a:hover {
+  color: #FFF;
+  text-decoration: none;
+}
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+.navbar_ {
+  overflow: hidden;
+  background-color: #333;
+  position: fixed;
+  width: 100%;
+  color: white;
+  font-size: 30px;
+  text-align: center;
+  height: 10%;
+  z-index: 1000;
+}
+.navbar_ a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  font-size: 17px;
+  z-index: -1;
+}
+
+.navbar_ a:hover {
+  background: #ddd;
+  color: black;
+}
+
+.navbar_ :hover{
+  text-decoration: none;
+}
+
+#main{
+  position: absolute;
+  top: 10%;
+  transition: margin-left .5s;
+  left:2%;
+  padding:20px;
+  width:1300px;
+}
+
+.main{
+  width: 100%;
+}
+.material-icons{
+  z-index: 1000;
+  position: fixed;
+  right: 2%;
+  top:3%;
+}
+
+.material-icons:hover{
+  cursor: pointer;
+
+}
+.page-name{
+  z-index: 1000;
+  font-weight: 500;
+}

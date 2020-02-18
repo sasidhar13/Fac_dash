@@ -1,0 +1,52 @@
+#main{
+  display: flex;
+}
+.main .search_form{
+  width:95%;
+  position: relative;
+  left:15px;
+  top:5px;
+}
+
+#leftside{
+  position: relative;
+  width: 50%;
+  background: #000000;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(90deg, #434343, #000000);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(90deg, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color: white;
+  height: 550px;
+  border-radius: 15px 15px 0 0;
+}
+.main .results{
+  width:75%;
+  margin-left:2%;
+}
+
+.table > tbody > tr > td {
+     vertical-align: middle;
+}
+
+.table > tbody > tr > th {
+     vertical-align: middle;
+}
+
+#profile{
+  position: relative;
+  right:10px;
+  background: none;
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+  border:2px solid #2ecc71;
+  padding: 5px 10px;
+  outline: none;
+  color: black;
+  border-radius: 24px;
+  transition: 0.25s;
+  cursor: pointer;
+}
+
+#profile:hover{
+  background: #2ecc71; 
+}

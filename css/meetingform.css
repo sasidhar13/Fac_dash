@@ -1,0 +1,157 @@
+
+.box{
+  width: 500px;
+  border-radius: 5px;
+  margin: 100px auto;
+  background: #000000;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(90deg, #434343, #000000);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  padding: 40px;
+  position: absolute;
+  top:30px;
+  transform: translate(90%,-10%);
+  text-align: center;
+  left: -25px;
+}
+.box h2{
+  color: white;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.box input[type="text"]{
+  background: none;
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+  border:2px solid #3498db;
+  padding: 14px 10px;
+  width: 200px;
+  outline: none;
+  color: white;
+  border-radius: 24px;
+  transition: 0.25s;
+}
+
+.box select{
+  background: none;
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+  border:2px solid #3498db;
+  padding: 14px 10px;
+  width: 200px;
+  outline: none;
+  color: white;
+  border-radius: 24px;
+  transition: 0.25s;
+  size: 20px;
+}
+
+.box input[type='date']{
+  background: none;
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+  border:2px solid #3498db;
+  padding: 14px 10px;
+  width: 150px;
+  outline: none;
+  color: white;
+  border-radius: 24px;
+  transition: 0.25s;
+  size: 20px;
+}
+
+
+.box input[type='time']{
+  background: none;
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+  border:2px solid #3498db;
+  padding: 14px 10px;
+  width: 150px;
+  outline: none;
+  color: white;
+  border-radius: 24px;
+  transition: 0.25s;
+  size: 20px;
+}
+
+.box label{
+  color:white;
+  position:absolute;
+}
+
+.box input[type="submit"]{
+  background: none;
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+  border:2px solid #2ecc71;
+  padding: 14px 40px;
+  outline: none;
+  color: white;
+  border-radius: 24px;
+  transition: 0.25s;
+  cursor: pointer;
+}
+.box input[type="submit"]:hover{
+  background: #2ecc71; 
+}
+.box input[type="text"]:focus{
+  width:380px;
+  border-color:#2ecc71;
+}
+
+.box select:focus{
+  width: 240px;
+  border-color:#2ecc71;
+}
+
+.box input[type="date"]:focus{
+  width: 190px;
+  border-color:#2ecc71;
+}
+
+.box input[type="time"]:focus{
+  width: 190px;
+  border-color:#2ecc71;
+}
+
+#labels{
+  top:30%;
+  left:21%;
+}
+#labele{
+  top:45%;
+  left:21%; 
+}
+
+
+
+.main{
+  position: absolute;
+  top: 10%;
+  transition: margin-left .5s;
+  padding:20px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.main .menu{
+  height:100px;
+  width:100px;
+}
+
+.main .content #leavesdiv{
+  position: absolute;
+  background: #000000;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(90deg, #434343, #000000);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color: white;
+  width: 1000px;
+  left:150px;
+  top:150px;
+}
