@@ -113,9 +113,9 @@
 							$fcourses=$row['courses'];
 		      				echo "<h4><i>Courses handled currently: </i>".$fcourses."</h4>";
 		      				echo "<h4><i>Educational Qualifications: </i><h4>";
-		      				$sql = "SELECT * FROM academicinfo where fid=$fid order by year desc";
-							$result = $con->query($sql);
-		      				if($result->num_rows==0){
+		      				$sql1 = "SELECT * FROM academicinfo where fid=$fid order by year desc";
+							$result1 = $con->query($sql1);
+		      				if($result1->num_rows==0){
 								echo "<h4>Error</h4>";
 							}else{
 			      				echo "<table class='table table-striped table-bordered tposition'>";
@@ -127,7 +127,7 @@
 			    				echo "</tr>";
 								echo "</thead>";
 								echo "<tbody>"; 
-								while($row = $result->fetch_assoc()) {
+								while($row = $result1->fetch_assoc()) {
 									echo "<tr>";
 									echo "<td>".$row['qualification']."</td>";
 									echo "<td>".$row['place']."</td>";
@@ -146,9 +146,9 @@
 		    	<article>
 		     		<h2>Papers/Projects</h2>
 		     		<?php
-		     			$sql = "SELECT * FROM papers where fid=$fid order by pdate desc";
-						$result = $con->query($sql);
-		      			if($result->num_rows==0){
+		     			$sql2 = "SELECT * FROM papers where fid=$fid order by pdate desc";
+						$result2 = $con->query($sql2);
+		      			if($result2->num_rows==0){
 							echo "<h4>Error</h4>";
 						}else{
 			      		echo "<table class='table table-striped table-bordered tposition'>";
@@ -161,7 +161,7 @@
 			    		echo "</tr>";
 						echo "</thead>";
 						echo "<tbody>"; 
-						while($row = $result->fetch_assoc()) {
+						while($row = $result2->fetch_assoc()) {
 							echo "<tr>";
 							echo "<td>".$row['title']."</td>";
 							echo "<td>".$row['publishedin']."</td>";
@@ -181,9 +181,9 @@
 		    	<article>
 		      		<h2>Faculty Acheievements</h2>
 		      		<?php
-		      			$sql = "SELECT * FROM acheivement where fid=$fid order by adate desc";
-						$result = $con->query($sql);
-		      			if($result->num_rows==0){
+		      			$sql3 = "SELECT * FROM acheivement where fid=$fid order by adate desc";
+						$result3 = $con->query($sql3);
+		      			if($result3->num_rows==0){
 							echo "<h4>Error</h4>";
 						}else{
 			      		echo "<table class='table table-striped table-bordered tposition'>";
@@ -196,7 +196,7 @@
 						echo "</thead>";
 						echo "<tbody>"; 
 						$i=1;
-						while($row = $result->fetch_assoc()) {
+						while($row = $result3->fetch_assoc()) {
 							echo "<tr>";
 							echo "<td>".$i."</td>";
 							echo "<td>".$row['aname']."</td>";
@@ -208,77 +208,54 @@
 						echo "</table>";
 						}
 			      	?>
+			    </article>
 		  	</section>
 		  	<section id="section5">
 		    	<input type="radio" name="sections" id="option5">
 		    	<label for="option5">Events</label>
 		    	<article>
-		      		<h2>Events Conducted</h2>
 		      		<?php
+			      		function event($sql){
+			      			$con=mysqli_connect("localhost", "root", "pass");
+							mysqli_select_db($con,"fac_dash");
+			      			$result = $con->query($sql);
+			      			if($result->num_rows==0){
+								echo "<h4>None</h4>";
+							}else{
+				      		echo "<table class='table table-striped table-bordered tposition'>";
+				  			echo "<thead>"; 
+							echo "<tr>";
+							echo "<th scope='col'><b>#</b></th>";
+							echo "<th scope='col'><b>Name</b></th>";
+							echo "<th scope='col'><b>Place</b></th>";
+							echo "<th scope='col'><b>Date</b></th>";
+							echo "<th scope='col'><b>Type</b></th>";
+				    		echo "</tr>";
+							echo "</thead>";
+							echo "<tbody>"; 
+							$i=1;
+							while($row = $result->fetch_assoc()) {
+								echo "<tr>";
+								echo "<td>".$i."</td>";
+								echo "<td>".$row['wname']."</td>";
+								echo "<td>".$row['wplace']."</td>";
+								echo "<td>".$row['wdate']."</td>";
+								echo "<td>".$row['wtype']."</td>";
+								echo "</tr>";
+								$i=$i+1;
+							}
+							echo "</tbody>";
+							echo "</table>";
+							}
+			      		}
+		      			echo "<h2>Events Conducted</h2>";
 		      			$sql = "SELECT * FROM workshop where fid=$fid and attended='Conducted' order by wdate desc";
-						$result = $con->query($sql);
-		      			if($result->num_rows==0){
-							echo "<h4>None</h4>";
-						}else{
-			      		echo "<table class='table table-striped table-bordered tposition'>";
-			  			echo "<thead>"; 
-						echo "<tr>";
-						echo "<th scope='col'><b>#</b></th>";
-						echo "<th scope='col'><b>Name</b></th>";
-						echo "<th scope='col'><b>Place</b></th>";
-						echo "<th scope='col'><b>Date</b></th>";
-						echo "<th scope='col'><b>Type</b></th>";
-			    		echo "</tr>";
-						echo "</thead>";
-						echo "<tbody>"; 
-						$i=1;
-						while($row = $result->fetch_assoc()) {
-							echo "<tr>";
-							echo "<td>".$i."</td>";
-							echo "<td>".$row['wname']."</td>";
-							echo "<td>".$row['wplace']."</td>";
-							echo "<td>".$row['wdate']."</td>";
-							echo "<td>".$row['wtype']."</td>";
-							echo "</tr>";
-							$i=$i+1;
-						}
-						echo "</tbody>";
-						echo "</table>";
-						}
-			      	?>
-			      	<h2>Events Attended</h2>
-		      		<?php
+						event($sql);
+			      		echo "<h2>Events Attended</h2>";
 		      			$sql = "SELECT * FROM workshop where fid=$fid and attended='Attended' order by wdate desc";
-						$result = $con->query($sql);
-		      			if($result->num_rows==0){
-							echo "<h4>None</h4>";
-						}else{
-			      		echo "<table class='table table-striped table-bordered tposition'>";
-			  			echo "<thead>"; 
-						echo "<tr>";
-						echo "<th scope='col'><b>#</b></th>";
-						echo "<th scope='col'><b>Name</b></th>";
-						echo "<th scope='col'><b>Place</b></th>";
-						echo "<th scope='col'><b>Date</b></th>";
-						echo "<th scope='col'><b>Type</b></th>";
-			    		echo "</tr>";
-						echo "</thead>";
-						echo "<tbody>"; 
-						$i=1;
-						while($row = $result->fetch_assoc()) {
-							echo "<tr>";
-							echo "<td>".$i."</td>";
-							echo "<td>".$row['wname']."</td>";
-							echo "<td>".$row['wplace']."</td>";
-							echo "<td>".$row['wdate']."</td>";
-							echo "<td>".$row['wtype']."</td>";
-							echo "</tr>";
-							$i=$i+1;
-						}
-						echo "</tbody>";
-						echo "</table>";
-						}
+		      			event($sql);
 			      	?>
+			    </article>
 		  	</section>
 		  	<section id="section2">
 		    	<input type="radio" name="sections" id="option2">
@@ -292,6 +269,7 @@
 		      			echo "<h4><i>Date of Birth: </i>".$row['dob']."</h4>";
 		      			echo "<h4><i>Blood Group: </i>".$row['bloodgrp']."</h4>";
 			      	?>
+			    </article>
 		  	</section>
 		</div>
 	</div>
