@@ -118,7 +118,7 @@
 	</div>
 	<div class="results">
 		<?php
-			function display($sql){
+			public function display($sql){
 				$con=mysqli_connect("localhost", "root", "pass");
 				mysqli_select_db($con,"fac_dash");
 				$result = $con->query($sql);
@@ -158,7 +158,9 @@
 					}
 					echo "</tbody>";
 					echo "</table>";
+					return 1;
 				}
+				return 0;
 			}
 			if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 				
@@ -169,7 +171,7 @@
 					$fid = $_POST['fac_id'];
 					$sql = "SELECT * FROM fdbuser where fid=$fid";
 					echo "<h3>Faculty ID search results</h3>";
-					display($sql);
+					$result=display($sql);
 				}
 				if (!empty($_POST['fac_fname'])){
 					$fname=$_POST['fac_fname'];

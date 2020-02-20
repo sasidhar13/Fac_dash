@@ -226,38 +226,40 @@
 		    	<label for="option5">Events</label>
 		    	<article>
 		      		<?php
-			      		function event($sql){
+			      		public function event($sql){
 			      			$con=mysqli_connect("localhost", "root", "pass");
 							mysqli_select_db($con,"fac_dash");
 			      			$result = $con->query($sql);
 			      			if($result->num_rows==0){
 								echo "<h4>None</h4>";
 							}else{
-				      		echo "<table class='table table-striped table-bordered tposition'>";
-				  			echo "<thead>"; 
-							echo "<tr>";
-							echo "<th scope='col'><b>#</b></th>";
-							echo "<th scope='col'><b>Name</b></th>";
-							echo "<th scope='col'><b>Place</b></th>";
-							echo "<th scope='col'><b>Date</b></th>";
-							echo "<th scope='col'><b>Type</b></th>";
-				    		echo "</tr>";
-							echo "</thead>";
-							echo "<tbody>"; 
-							$i=1;
-							while($row = $result->fetch_assoc()) {
+					      		echo "<table class='table table-striped table-bordered tposition'>";
+					  			echo "<thead>"; 
 								echo "<tr>";
-								echo "<td>".$i."</td>";
-								echo "<td>".$row['wname']."</td>";
-								echo "<td>".$row['wplace']."</td>";
-								echo "<td>".$row['wdate']."</td>";
-								echo "<td>".$row['wtype']."</td>";
-								echo "</tr>";
-								$i=$i+1;
+								echo "<th scope='col'><b>#</b></th>";
+								echo "<th scope='col'><b>Name</b></th>";
+								echo "<th scope='col'><b>Place</b></th>";
+								echo "<th scope='col'><b>Date</b></th>";
+								echo "<th scope='col'><b>Type</b></th>";
+					    		echo "</tr>";
+								echo "</thead>";
+								echo "<tbody>"; 
+								$i=1;
+								while($row = $result->fetch_assoc()) {
+									echo "<tr>";
+									echo "<td>".$i."</td>";
+									echo "<td>".$row['wname']."</td>";
+									echo "<td>".$row['wplace']."</td>";
+									echo "<td>".$row['wdate']."</td>";
+									echo "<td>".$row['wtype']."</td>";
+									echo "</tr>";
+									$i=$i+1;
+								}
+								echo "</tbody>";
+								echo "</table>";
+								return 1;
 							}
-							echo "</tbody>";
-							echo "</table>";
-							}
+							return 0;
 			      		}
 		      			echo "<h2>Events Conducted</h2>";
 		      			$sql = "SELECT * FROM workshop where fid=$fid and attended='Conducted' order by wdate desc";
