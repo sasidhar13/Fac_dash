@@ -3,6 +3,7 @@
 <head>
 	<link rel="stylesheet" href="css/basic.css">
 	<link rel="stylesheet" href="css/secques.css">
+	<script type="text/javascript" src="js/basic.js"></script> 
 	<script type="text/javascript" src="js/secques.js"></script>
 	<script type="text/javascript" src="js/jquery-3.4.1.js"></script>
 	<meta charset="utf-8">
