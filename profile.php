@@ -16,10 +16,15 @@
 </head>
 <body>
 	<?php
+		session_start();
+		if (isset($_SESSION['login'])){
+			$login=$_SESSION['login'];
+		}else{
+			$login='NO';
+		}
 		if ($_SERVER['HTTP_REFERER']=='http://localhost/project/search.php'){
 			$fid=$_POST['fid'];
 		}else{
-			session_start();
 			$fid=$_SESSION['fid'];
 			$acctype=$_SESSION['acctype'];
 		}
@@ -41,8 +46,14 @@
 	<div id="mySidenav" class="sidenav">
 		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 		<a href="dashboard.php">Dashboard</a>
-		<a href="profile.php">Profile</a>
-		<a href="loutprocess.php">Logout</a>
+		<?php 
+			if($login=='OK'){
+				echo "<a href='profile.php'>Profile</a>";
+				echo "<a href='loutprocess.php'>Logout</a>";
+			}else{
+				echo "<a href='main.php'>Login</a>";
+			}
+		?>
 	</div>
 
 	
