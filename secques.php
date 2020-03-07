@@ -58,29 +58,29 @@
 				$result1 = mysqli_query($con,"select * from secquesans where fid=".$fid."");
 				$row1= mysqli_fetch_array($result1);
 			?>
-			<form>
+			<form action="secquesbe.php" method="POST">
 				<h3> Edit your Security verification Questions and Answers </h3>
 			  	<div class="form-group">
 			    	<label for="q1">What is your mother's maiden name?</label>
-			    	<input type="text" class="form-control" id="q1" placeholder="Value1" value=<?php echo " ".$row1['q1']." "?> >
+			    	<input type="text" class="form-control" id="q1" name="q1" placeholder="Value1" value=<?php echo " ".$row1['q1']." "?> >
 			  	</div>
 			  	<div class="form-group">
 			    	<label for="q2">What is your first pet's name?</label>
-			    	<input type="text" class="form-control" id="q2" placeholder="Value2" value=<?php echo " ".$row1['q2']." "?> >
+			    	<input type="text" class="form-control" id="q2" name="q2" placeholder="Value2" value=<?php echo " ".$row1['q2']." "?> >
 			  	</div>
 			  	<div class="form-group">
 			    	<label for="q3">Where is your highschool located at?</label>
-			    	<input type="text" class="form-control" id="q3" placeholder="Value3" value=<?php echo " ".$row1['q3']." "?> >
+			    	<input type="text" class="form-control" id="q3" name="q3" placeholder="Value3" value=<?php echo " ".$row1['q3']." "?> >
 			  	</div>
 			  	<div class="form-group">
 			    	<label for="q4">Where is your hometown?</label>
-			    	<input type="text" class="form-control" id="q4" placeholder="Value4" value=<?php echo " ".$row1['q4']." "?> >
+			    	<input type="text" class="form-control" id="q4" name="q4" placeholder="Value4" value=<?php echo " ".$row1['q4']." "?> >
 			  	</div>
 			  	<div class="form-group">
 			    	<label for="q5">What is your nickname?</label>
-			    	<input type="text" class="form-control" id="q5" placeholder="Value5" value=<?php echo " ".$row1['q5']." "?> >
+			    	<input type="text" class="form-control" id="q5" name="q5" placeholder="Value5" value=<?php echo " ".$row1['q5']." "?> >
 			  	</div>
-			  	<button type="submit" class="btn btn-primary">Submit</button>
+			  	<button type="submit" class="btn btn-primary" name="subbtn" value="info">Submit</button>
 			</form>
 		</div>
 	</div>

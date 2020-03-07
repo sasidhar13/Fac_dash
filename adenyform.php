@@ -22,11 +22,11 @@
 		$now= $now->format('Y-m-d');
 		if ($now>$apptdate or $apptstatus=='Denied'){
 			$msg="Cannot be denied anymore";
-			echo "<script>(alert('$msg'));window.location.href='schedulehod.php';</script>";
+			echo "<script>(alert('$msg'));window.location.href='schedule.php';</script>";
 		}else{
 			$sql= "UPDATE appointment SET apptstatus='Denied' WHERE aid=$aid and hodid=$hodid";
 			$sqlresult=mysqli_query($con,$sql);
-			header("Location:schedulehod.php");
+			header("Location:schedule.php");
 		}
 							
 	?>

@@ -16,24 +16,25 @@
 </head>
 <body>
 	<?php
-		session_start();
+		@session_start();
 		if (isset($_SESSION['login'])){
-			$login=$_SESSION['login'];
+			$login=@$_SESSION['login'];
 		}else{
-			$login='NO';
+			$login="NO";
 		}
-		if ($_SERVER['HTTP_REFERER']=='http://localhost/project/search.php'){
-			$fid=$_POST['fid'];
+		if (@$_SERVER['HTTP_REFERER']=="http://localhost/project/search.php"){
+			$fid=($_POST['fid']);
 		}else{
-			$fid=$_SESSION['fid'];
-			$acctype=$_SESSION['acctype'];
+			$fid=@$_SESSION['fid'];
+			$acctype=@$_SESSION['acctype'];
 		}
 		$con=mysqli_connect("localhost", "root", "pass");
 		mysqli_select_db($con,"fac_dash");
-		$result = mysqli_query($con,"select * from fdbuser where fid=$fid") or die("Failed to query database".mysqli_error());
+		$result = mysqli_query($con,"select * from fdbuser where fid=$fid") or die("Failed to query database".mysqli_error($con));
 		$row= mysqli_fetch_array($result);
-		$deptid=$row['deptid'];
-		$result = mysqli_query($con,"select * from department where deptid=$deptid") or die("Failed to query database".mysqli_error());
+		$deptid=($row['deptid']);
+		$_SESSION['deptid']=$deptid;
+		$result = mysqli_query($con,"select * from department where deptid=$deptid") or die("Failed to query database".mysqli_error($con));
 		$row= mysqli_fetch_array($result);
 		$deptname=$row['deptname'];
 	?>
@@ -47,7 +48,7 @@
 		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 		<a href="dashboard.php">Dashboard</a>
 		<?php 
-			if($login=='OK'){
+			if($login=="OK"){
 				echo "<a href='profile.php'>Profile</a>";
 				echo "<a href='loutprocess.php'>Logout</a>";
 			}else{
@@ -68,7 +69,7 @@
 			    	$con=mysqli_connect("localhost", "root", "pass");
 					mysqli_select_db($con,"fac_dash");
 
-					$result = mysqli_query($con,"select * from fdbuser where fid= '$fid'") or die("Failed to query database".mysqli_error());
+					$result = mysqli_query($con,"select * from fdbuser where fid=$fid") or die("Failed to query database".mysqli_error());
 					$row= mysqli_fetch_array($result);
 					echo "<h1>".$row['fname']." ".$row['lname']."</h1>";
 					echo "<h3><i>Faculty ID:</i> ".$row['fid']."</h3>";
@@ -85,20 +86,20 @@
 		</form>
 		<?php 
 			if ($_SERVER['HTTP_REFERER']!='http://localhost/project/search.php'){
-				echo "<form action='editform.php' method='post' accept-charset='utf-8'>";
-				echo "<input class='btn' type='submit' name='edit' value='edit'>";
-				echo "</form>";
-				if ($acctype=='faculty'){
-					echo "<form action='leaveform.php' method='post' accept-charset='utf-8'>";
-				}else{
-					echo "<form action='leaveformhod.php' method='post' accept-charset='utf-8'>";
-				}
-				echo "<input class='btn' id='leavebtn' type='submit' name='leaves' value='leaves'>";
-				echo "</form>";
-				echo "<form action='schedule.php' method='post' accept-charset='utf-8'>";
-				echo "<input class='btn' id='schedulebtn' type='submit' name='schedule' value='schedule'>";
-				echo "</form>";
-				echo "<form action='secques.php' method='post' accept-charset='utf-8'>";
+					echo "<form action='editform.php' method='post' accept-charset='utf-8'>";
+					echo "<input class='btn' type='submit' name='edit' value='edit'>";
+					echo "</form>";
+					if ($acctype=='faculty'){
+						echo "<form action='leaveform.php' method='post' accept-charset='utf-8'>";
+					}else{
+						echo "<form action='leaveformhod.php' method='post' accept-charset='utf-8'>";
+					}
+					echo "<input class='btn' id='leavebtn' type='submit' name='leaves' value='leaves'>";
+					echo "</form>";
+					echo "<form action='schedule.php' method='post' accept-charset='utf-8'>";
+					echo "<input class='btn' id='schedulebtn' type='submit' name='schedule' value='schedule'>";
+					echo "</form>";
+					echo "<form action='secques.php' method='post' accept-charset='utf-8'>";
 				echo "<input class='btn' id='secquesbtn' type='submit' name='secques' value='security'>";
 				echo "</form>";
 			}
@@ -127,7 +128,7 @@
 		      				$sql1 = "SELECT * FROM academicinfo where fid=$fid order by year desc";
 							$result1 = $con->query($sql1);
 		      				if($result1->num_rows==0){
-								echo "<h4>Error</h4>";
+								echo "<h4>None</h4>";
 							}else{
 			      				echo "<table class='table table-striped table-bordered tposition'>";
 			  					echo "<thead>"; 
@@ -157,10 +158,10 @@
 		    	<article>
 		     		<h2>Papers/Projects</h2>
 		     		<?php
-		     			$sql2 = "SELECT * FROM papers where fid=$fid order by pdate desc";
+		     			$sql2 = "SELECT * FROM papers where fid=$fid and visibility='Show' order by pdate desc";
 						$result2 = $con->query($sql2);
 		      			if($result2->num_rows==0){
-							echo "<h4>Error</h4>";
+							echo "<h4>None</h4>";
 						}else{
 			      		echo "<table class='table table-striped table-bordered tposition'>";
 			  			echo "<thead>"; 
@@ -192,10 +193,10 @@
 		    	<article>
 		      		<h2>Faculty Acheievements</h2>
 		      		<?php
-		      			$sql3 = "SELECT * FROM acheivement where fid=$fid order by adate desc";
+		      			$sql3 = "SELECT * FROM acheivement where fid=$fid and visibility='Show' order by adate desc";
 						$result3 = $con->query($sql3);
 		      			if($result3->num_rows==0){
-							echo "<h4>Error</h4>";
+							echo "<h4>None</h4>";
 						}else{
 			      		echo "<table class='table table-striped table-bordered tposition'>";
 			  			echo "<thead>"; 
@@ -226,7 +227,7 @@
 		    	<label for="option5">Events</label>
 		    	<article>
 		      		<?php
-			      		public function event($sql){
+			      		function event($sql){
 			      			$con=mysqli_connect("localhost", "root", "pass");
 							mysqli_select_db($con,"fac_dash");
 			      			$result = $con->query($sql);
@@ -240,7 +241,6 @@
 								echo "<th scope='col'><b>Name</b></th>";
 								echo "<th scope='col'><b>Place</b></th>";
 								echo "<th scope='col'><b>Date</b></th>";
-								echo "<th scope='col'><b>Type</b></th>";
 					    		echo "</tr>";
 								echo "</thead>";
 								echo "<tbody>"; 
@@ -251,7 +251,6 @@
 									echo "<td>".$row['wname']."</td>";
 									echo "<td>".$row['wplace']."</td>";
 									echo "<td>".$row['wdate']."</td>";
-									echo "<td>".$row['wtype']."</td>";
 									echo "</tr>";
 									$i=$i+1;
 								}
@@ -262,12 +261,12 @@
 							return 0;
 			      		}
 		      			echo "<h2>Events Conducted</h2>";
-		      			$sql = "SELECT * FROM workshop where fid=$fid and attended='Conducted' order by wdate desc";
+		      			$sql = "SELECT * FROM workshop where fid=$fid and visibility='Show' and attended='Conducted' order by wdate desc";
 						event($sql);
 			      		echo "<h2>Events Attended</h2>";
-		      			$sql = "SELECT * FROM workshop where fid=$fid and attended='Attended' order by wdate desc";
+		      			$sql = "SELECT * FROM workshop where fid=$fid and visibility='Show' and attended='Attended' order by wdate desc";
 		      			event($sql);
-			      	?>
+			      	?> 
 			    </article>
 		  	</section>
 		  	<section id="section2">

@@ -8,7 +8,6 @@
 	<script type="text/javascript" src="js/jquery-3.4.1.js"></script>
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
-	<link rel="stylesheet" href="css/schedule.css">
 	<link rel="stylesheet" href="css/basic.css">
 	<script type="text/javascript" src="js/basic.js"></script>
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">   

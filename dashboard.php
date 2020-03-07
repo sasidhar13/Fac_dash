@@ -19,11 +19,11 @@
 <body>
 	<?php
 		session_start();
-		if (isset($_SESSION['login'])){
-			$login=$_SESSION['login'];
-		}else{
-			$login='NO';
-		}
+			if ($_SESSION['login']=='OK'){
+				$login=$_SESSION['login'];
+			}else{
+				$login='NO';
+			}
 	?>
 	<div class="navbar_">
 		<a style="font-size:30px; cursor:pointer; color: white; " onclick="openNav()">&#9776;</a>
@@ -51,7 +51,10 @@
 			</div>
 			<div class="about aboutcard">
 				<p>. </p>
-				<h1 align="center"> ABC University, XYZ </h1>
+				<h1 align="center"> AMRITA UNIVERSITY </h1>
+				<?php
+				echo "<img id='img' src='images/amrita' width='100%'/>";
+				?>
 			</div>
 		</div>
 		<div class="recent">

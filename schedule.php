@@ -97,8 +97,11 @@
 			<?php
 			    	$con=mysqli_connect("localhost", "root", "pass");
 					mysqli_select_db($con,"fac_dash");
-
-					$sql= "SELECT * FROM appointment WHERE fid=$fid";
+					if ($acctype=='hod'){
+						$sql= "SELECT * FROM appointment WHERE hodid=$fid";
+					}else{
+						$sql= "SELECT * FROM appointment WHERE fid=$fid";
+					}
 					$result=$con->query($sql);
 					if($result->num_rows==0){
 						echo "<h4>No scheduled meetings for now</h4>";
@@ -136,7 +139,6 @@
 								echo "<input type='hidden' id='apptdate' name='apptdate' value='".$row["apptdate"]."'>";
 								echo "<input type='hidden' id='appttime' name='appttime' value='".$row["appttime"]."'></form></td>";
 								echo "<td><form  action='adenyform.php' method='POST'>";
-								echo "<input type='text' name='adenymsg' id='adenymsg' value='Message'>";
 								echo "<input type='submit' name='adeny' id='adeny' value='Deny'>";
 								echo "<input type='hidden' id='aid' name='aid' value='".$row["aid"]."'>";
 								echo "<input type='hidden' id='apptstatus' name='apptstatus' value='".$row["apptstatus"]."'>";
