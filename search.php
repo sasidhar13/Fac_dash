@@ -16,7 +16,7 @@
 </head>
 <body>
 	<?php
-		session_start();
+		@session_start();
 		if (isset($_SESSION['login'])){
 			$login=$_SESSION['login'];
 		}else{
@@ -118,7 +118,7 @@
 	</div>
 	<div class="results">
 		<?php
-			public function display($sql){
+			function display($sql){
 				$con=mysqli_connect("localhost", "root", "pass");
 				mysqli_select_db($con,"fac_dash");
 				$result = $con->query($sql);
@@ -145,14 +145,14 @@
 						$deptname=$row1['deptname'];
 						echo "<tr>";
 						echo "<th scope='row'>".$i."</th>";
-						echo "<td>".$row['fid']."</td>";
-						echo "<td>".$row['fname']."</td>";
-						echo "<td>".$row['lname']."</td>";
-						echo "<td>".$deptname."</td>";
-						echo "<td>".$row['fposition']."</td>";
+						echo "<td>".@$row['fid']."</td>";
+						echo "<td>".@$row['fname']."</td>";
+						echo "<td>".@$row['lname']."</td>";
+						echo "<td>".@$deptname."</td>";
+						echo "<td>".@$row['fposition']."</td>";
 						echo "<td><form  action='profile.php' method='POST'>";
 						echo "<input type='submit' name='profile' id='profile' value='View Profile'>";
-						echo "<input type='hidden' id='fid' name='fid' value='".$row["fid"]."'></form></td>";
+						echo "<input type='hidden' id='fid' name='fid' value='".@$row['fid']."'></form></td>";
 						echo "</tr>";
 						$i=$i+1;
 					}
@@ -162,7 +162,7 @@
 				}
 				return 0;
 			}
-			if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+			if (@$_SERVER['REQUEST_METHOD'] == 'POST'){
 				
 				$con=mysqli_connect("localhost", "root", "pass");
 				mysqli_select_db($con,"fac_dash");
