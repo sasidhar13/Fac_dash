@@ -8,7 +8,7 @@
   background: linear-gradient(to right, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   padding: 40px;
   position: absolute;
-  top:100px;
+  top:30px;
   transform: translate(90%,-10%);
   text-align: center;
   left: -25px;
@@ -33,21 +33,37 @@
 }
 
 .box select{
-  color: #fff;
   background: none;
   display: block;
   margin: 20px auto;
-  text-align: c0enter;
+  text-align: center;
   border:2px solid #3498db;
   padding: 14px 10px;
   width: 200px;
   outline: none;
+  color: white;
   border-radius: 24px;
   transition: 0.25s;
   size: 20px;
 }
 
 .box input[type='date']{
+  background: none;
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+  border:2px solid #3498db;
+  padding: 14px 10px;
+  width: 150px;
+  outline: none;
+  color: white;
+  border-radius: 24px;
+  transition: 0.25s;
+  size: 20px;
+}
+
+
+.box input[type='time']{
   background: none;
   display: block;
   margin: 20px auto;
@@ -91,7 +107,6 @@
 .box select:focus{
   width: 240px;
   border-color:#2ecc71;
-  color: white;
 }
 
 .box input[type="date"]:focus{
@@ -99,53 +114,21 @@
   border-color:#2ecc71;
 }
 
+.box input[type="time"]:focus{
+  width: 190px;
+  border-color:#2ecc71;
+}
+
 #labels{
-  top:41%;
-  left:18%;
+  top:30%;
+  left:21%;
 }
 #labele{
-  top:54%;
+  top:45%;
   left:21%; 
 }
 
-.btn{
-  display: block;
-  width: 250px;
-  height: 50px;
-  border-radius: 25px;
-  margin: 1rem 0;
-  font-size: 1.8rem;
-  background-image: linear-gradient(to right, #000, #38d39f, #000);
-  cursor: pointer;
-  color: #fff;
-  text-transform: uppercase;
-  font-family: 'Poppins', sans-serif;
-  background-size: 200%;
-  transition: .5s;
-  position: absolute;
-  top:30px;
-  border-width: 1px;
-}
 
-.btn:hover{
-  background-position: right;
-}
-
-#apply{
-  left:95px;
-}
-
-#leaves{
-  left:395px;
-}
-
-#remaining{
-  left:695px;
-}
-
-#salary{
-  left:995px;
-}
 
 .main{
   position: absolute;
@@ -171,63 +154,4 @@
   width: 1000px;
   left:150px;
   top:150px;
-  display: none;
-}
-
-.main .content #remainingdiv{
-  position: absolute;
-  background: #000000;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(90deg, #434343, #000000);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  color: white;
-  width: 500px;
-  left:425px;
-  top:150px;
-  display: none;
-}
-
-.main .content #applydiv{
-  display: block;
-}
-
-#ldeleteform input[type='submit']{
-  position: relative;
-  top:5px;
-  right:10px;
-  background: none;
-  display: block;
-  margin: 20px auto;
-  text-align: center;
-  border:2px solid #2ecc71;
-  padding: 5px 10px;
-  outline: none;
-  color: white;
-  border-radius: 24px;
-  transition: 0.25s;
-  cursor: pointer;
-}
-
-#ldeleteform input[type="submit"]:hover{
-  background: #2ecc71; 
-}
-
-
-#ldelete{
-  position: relative;
-  right:10px;
-  background: none;
-  display: block;
-  margin: 20px auto;
-  text-align: center;
-  border:2px solid #2ecc71;
-  padding: 5px 10px;
-  outline: none;
-  color: white;
-  border-radius: 24px;
-  transition: 0.25s;
-  cursor: pointer;
-}
-
-#ldelete:hover{
-  background: #2ecc71; 
 }

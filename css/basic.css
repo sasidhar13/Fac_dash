@@ -97,3 +97,14 @@ body{
   z-index: 1000;
   font-weight: 500;
 }
+
+
+.table > tbody > tr > td {
+     vertical-align: middle;
+     align-content: center;
+}
+
+.table > tbody > tr > th {
+     vertical-align: middle;
+     align-content: center;
+}

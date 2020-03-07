@@ -1,0 +1,42 @@
+.position{
+	display: flex;
+}
+
+.position .left{
+	position: relative;
+	left: 50px;
+	width:400px;
+}
+
+.position .right{
+	position: relative;
+	left: 50px;
+	width:800px;
+}
+
+.gap{
+	margin-top: 50px;
+}
+
+#form input[type='submit']{
+  position: relative;
+  background: none;
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+  border:2px solid #2ecc71;
+  padding: 5px 10px;
+  outline: none;
+  color: black;
+  border-radius: 24px;
+  transition: 0.25s;
+  cursor: pointer;
+}
+
+#form input[type="submit"]:hover{
+  background: #2ecc71; 
+}
+
+input[type=date] { 
+     padding-top:0px; /* margin-top: 2px; ... */
+}

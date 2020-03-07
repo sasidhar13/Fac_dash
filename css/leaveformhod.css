@@ -214,13 +214,3 @@
 #lapprove:hover{
   background: #2ecc71; 
 }
-
-.table > tbody > tr > td {
-     vertical-align: middle;
-     align-content: center;
-}
-
-.table > tbody > tr > th {
-     vertical-align: middle;
-     align-content: center;
-}
